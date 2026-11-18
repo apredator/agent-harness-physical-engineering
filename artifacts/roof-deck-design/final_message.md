@@ -1,0 +1,1 @@
+Собран output/submission.zip (deck_design.xlsx, constraint_register.xlsx, roof_deck_plan.dxf, design_basis.md) через build/build.py. DXF и design_basis.md минимальны — улучшить не успел из-за лимита шагов.

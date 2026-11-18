@@ -1,0 +1,489 @@
+                                              CLARK COUNTY, NEVADA
+                                            DEPARTMENT OF PUBLIC WORKS
+                                                     Development Review Division
+                                  500 S. Grand Central Parkway, 3rd Floor · Las Vegas, Nevada 89155
+                                                       Telephone (702) 455-6000
+
+
+                                 UNIFORM UNIT COST SCHEDULE
+                                       For Bonding of Subdivision Improvements
+
+    Effective Date:             01/01/2026
+    Supersedes:                 Unit Cost Schedule dated 01/01/2025
+    Issued by:                  Clark County Public Works, Development Review Division
+
+
+ PREFACE
+ The Uniform Unit Cost Schedule is published by Clark County Public Works for use by engineers of record, developers,
+ and sureties in preparing an engineer's estimate of probable cost for subdivision improvements offered for bonding under
+ Clark County Code Title 30 and the Uniform Standard Specifications for Public Works Construction Off-Site
+ Improvements (Clark County Area).
+ Unit prices set forth in this schedule reflect current Southern Nevada construction market conditions as surveyed by the
+ Department across the twelve-month period preceding the effective date, drawing on bid tabulations for publicly bid
+ subdivision and off-site improvement work in unincorporated Clark County and the incorporated municipalities of the Las
+ Vegas Valley. The schedule is intended to normalize bonding across projects and to remove unit price disputes from the
+ plan check cycle.
+ Engineer's estimates for subdivision performance and labor-and-material bonds submitted to Clark County shall use the
+ unit prices published in this schedule unless project-specific pricing is documented in writing (three qualified
+ subcontractor quotes or an executed prime contract, dated within ninety (90) days of estimate submittal) and approved by
+ Clark County Development Review prior to bond posting. Where project-specific pricing is approved, the higher of the
+ two unit prices shall govern for bonding purposes.
+ Contingency, mobilization, and design/inspection allowances stated in Section 11 shall be applied to the sum of itemized
+ construction cost in every engineer's estimate submitted for bonding.
+
+ ESCALATION AND REVIEW
+ This schedule is reviewed annually by the Department. Revised schedules are issued each January, with an effective date
+ of 01/01 of the calendar year. Between annual issues, the Department may issue a mid-year addendum where documented
+ market conditions materially depart (±10 percent or greater on any category) from the published unit price. Bonding
+ accepted against a superseded schedule remains in force at the amount posted; renewals, reissues, and increases occurring
+ after a schedule effective date shall use the current schedule.
+ Estimates submitted within thirty (30) days after a schedule effective date may, at the applicant's election, be computed
+ against the immediately superseded schedule.
+
+ SECTION 1 — EARTHWORK
+    Item No.                                         Description                                      Unit   Unit Price
+       1.01      Clearing and grubbing, complete                                                      AC     $3,850.00
+       1.02      Removal of existing asphaltic concrete pavement, all thicknesses                     SY       $6.75
+       1.03      Removal of existing Portland cement concrete pavement, sidewalk, or driveway         SY      $12.50
+       1.04      Removal of existing curb and gutter                                                  LF       $8.25
+
+
+Clark County Public Works – Uniform Unit Cost Schedule – Effective 01/01/2026                                             Page 1
+    Item No.                                          Description                                          Unit          Unit Price
+       1.05      Sawcut, all depths                                                                         LF              $3.50
+       1.06      Roadway excavation (unclassified), haul on-site                                           CY               $9.50
+       1.07      Roadway excavation, haul off-site (import from or export to permitted disposal)           CY               $16.25
+       1.08      Structural excavation, storm drain and utility trench                                     CY               $14.00
+       1.09      Embankment, on-site borrow, compacted in place                                            CY               $8.75
+       1.10      Imported structural fill, Type II granular, compacted in place                            CY               $22.00
+       1.11      Subgrade preparation, scarify 12" and recompact                                            SY              $3.25
+       1.12      Overexcavation and recompaction, per geotechnical recommendation                          CY               $13.50
+       1.13      Fine grading, streets and lot pads                                                         SY              $2.10
+       1.14      Rough grading, common area and drainage tracts                                             SY              $1.65
+       1.15      Dust control (SNHD Section 90 compliance), duration of construction                        LS              Actual
+                 Stormwater pollution prevention (BMP installation, maintenance, removal),                          1.5% of items 1.01 –
+       1.16                                                                                                 LS
+                 NVR100000 compliance                                                                                      1.14
+
+    Notes:
+    (a) Item 1.15 shall be estimated by the engineer on the basis of disturbed area and construction duration and shall not be less than
+    $1,200 per acre disturbed.
+    (b) Import and export quantities shall balance to the earthwork exhibit sealed by the engineer of record.
+
+ SECTION 2 — STORM DRAIN
+ 2A. Reinforced Concrete Pipe (RCP), Class III, in trench, complete in place
+    Item No.                                          Description                                          Unit          Unit Price
+       2.01      18-inch RCP                                                                                LF              $88.00
+       2.02      24-inch RCP                                                                                LF             $112.00
+       2.03      30-inch RCP                                                                                LF             $138.00
+       2.04      36-inch RCP                                                                                LF             $172.00
+       2.05      42-inch RCP                                                                                LF             $214.00
+       2.06      48-inch RCP                                                                                LF             $258.00
+       2.07      54-inch RCP                                                                                LF             $312.00
+       2.08      60-inch RCP                                                                                LF             $372.00
+       2.09      66-inch RCP                                                                                LF             $438.00
+       2.10      72-inch RCP                                                                                LF             $510.00
+       2.11      84-inch RCP                                                                                LF             $665.00
+
+ 2B. Reinforced Concrete Box Culvert, cast-in-place, complete in place
+    Item No.                                          Description                                          Unit          Unit Price
+       2.20      4' x 4' single-cell RCB                                                                    LF             $585.00
+       2.21      6' x 4' single-cell RCB                                                                    LF             $720.00
+       2.22      8' x 6' single-cell RCB                                                                    LF             $945.00
+       2.23      10' x 8' single-cell RCB                                                                   LF            $1,210.00
+
+ 2C. Drainage Structures
+
+
+
+Clark County Public Works – Uniform Unit Cost Schedule – Effective 01/01/2026                                                          Page 2
+    Item No.                                          Description                                       Unit          Unit Price
+       2.30      Catch basin, Type A, standard curb inlet, depth ≤ 6 ft                                  EA            $4,850.00
+       2.31      Catch basin, Type A, depth > 6 ft, per additional ft                                    VF             $475.00
+       2.32      Catch basin, Type B (grated), depth ≤ 6 ft                                              EA            $5,600.00
+       2.33      Combination inlet, curb and grate                                                       EA            $7,250.00
+       2.34      Drop inlet, area drain                                                                  EA            $3,900.00
+       2.35      Storm drain manhole, 48-inch dia., depth ≤ 8 ft                                         EA            $6,400.00
+       2.36      Storm drain manhole, 60-inch dia., depth ≤ 10 ft                                        EA            $8,750.00
+       2.37      Storm drain manhole, 72-inch dia., depth ≤ 12 ft                                        EA           $12,200.00
+       2.38      Storm drain manhole additional depth beyond schedule, per foot                          VF             $685.00
+       2.39      Junction structure, cast-in-place, sized per plan                                       CY            $1,150.00
+       2.40      Headwall, cast-in-place, up to 48-inch pipe                                             EA            $5,400.00
+       2.41      Headwall, cast-in-place, 54-inch through 72-inch pipe                                   EA            $8,200.00
+       2.42      Riprap, D50 = 12 inches, on filter fabric                                               SY             $86.00
+       2.43      Grouted riprap, D50 = 18 inches                                                         SY             $128.00
+       2.44      Detention basin excavation, in unclassified material                                    CY              $9.75
+       2.45      Detention basin outlet structure, per plan                                              LS        Actual, ≥ $18,000
+       2.46      Detention basin fencing, 6-ft chain link with 3-strand barbed                           LF             $34.00
+       2.47      Access ramp, 4-inch AC over 6-inch aggregate base                                       SY             $32.00
+
+    Notes:
+    (a) RCP unit prices include bedding (Type 2 per Uniform Standard Drawing), backfill, joints, and connections to structures.
+    (b) Manhole prices include frame, cover, base, and standard drop connections up to two per structure.
+
+ SECTION 3 — STREETS AND PAVING
+ 3A. Pavement Section
+    Item No.                                          Description                                       Unit          Unit Price
+       3.01      Asphaltic concrete pavement, Type II, 3-inch thickness                                  SY             $22.50
+       3.02      Asphaltic concrete pavement, Type II, 4-inch thickness                                  SY             $29.00
+       3.03      Asphaltic concrete pavement, Type II, 5-inch thickness                                  SY             $35.75
+       3.04      Asphaltic concrete pavement, Type II, 6-inch thickness                                  SY             $42.50
+       3.05      Aggregate base course, Type II, 6-inch thickness                                        SY              $9.25
+       3.06      Aggregate base course, Type II, 8-inch thickness                                        SY             $12.10
+       3.07      Aggregate base course, Type II, 12-inch thickness                                       SY             $17.85
+       3.08      Prime coat, MC-70                                                                       SY              $1.15
+       3.09      Tack coat, SS-1h                                                                        SY              $0.85
+       3.10      Crack seal, hot-applied                                                                 LF              $1.90
+       3.11      Slurry seal, Type II                                                                    SY              $3.75
+
+ 3B. Curb, Gutter, Sidewalk, and Concrete Flatwork
+    Item No.                                          Description                                       Unit          Unit Price
+       3.20      Type A vertical curb and gutter, 6-inch curb face                                       LF             $28.50
+
+
+
+Clark County Public Works – Uniform Unit Cost Schedule – Effective 01/01/2026                                                      Page 3
+    Item No.                                           Description                                    Unit          Unit Price
+       3.21      Type B rolled curb and gutter, 4-inch curb face                                       LF             $27.00
+       3.22      Type C ribbon curb, no gutter                                                         LF             $18.75
+       3.23      Type D combination curb and 18-inch gutter                                            LF             $32.75
+       3.24      Modified curb and gutter, transition, per detail                                      LF             $36.00
+       3.25      Portland cement concrete sidewalk, 4-inch thickness                                   SF             $8.10
+       3.26      Portland cement concrete sidewalk, 6-inch thickness                                   SF             $10.25
+       3.27      Concrete driveway approach, residential, per Uniform Std Drawing                     EA            $2,650.00
+       3.28      Concrete driveway approach, commercial                                               EA            $4,250.00
+       3.29      Curb access ramp (ADA), directional, per Uniform Std Drawing                         EA            $2,175.00
+       3.30      Curb access ramp (ADA), diagonal                                                     EA            $1,950.00
+       3.31      Detectable warning surface, cast-in-place                                             SF             $52.00
+       3.32      Cross-gutter, Portland cement concrete, 8-inch thickness                             SY             $115.00
+       3.33      Valley gutter, 8-inch thickness                                                      SY             $108.00
+       3.34      Alley paving, Portland cement concrete, 6-inch thickness                             SY              $96.00
+       3.35      Concrete median cap, 4-inch thickness                                                 SF             $9.50
+       3.36      Concrete median nose, hand-formed                                                    EA             $850.00
+
+ 3C. Street Appurtenances
+    Item No.                                           Description                                    Unit          Unit Price
+       3.40      Adjust existing manhole to grade                                                     EA             $685.00
+       3.41      Adjust existing valve box to grade                                                   EA             $185.00
+       3.42      Adjust existing monument to grade                                                    EA             $325.00
+       3.43      Street name sign, standard, on post                                                  EA             $625.00
+       3.44      Stop sign (R1-1), 30-inch, on post                                                   EA             $450.00
+       3.45      Traffic control sign, standard, on post                                              EA             $425.00
+       3.46      Pavement striping, 4-inch thermoplastic                                               LF             $1.85
+       3.47      Pavement striping, 8-inch thermoplastic                                               LF             $3.25
+       3.48      Pavement legend or arrow, thermoplastic                                              EA             $310.00
+       3.49      Raised pavement marker                                                               EA              $9.75
+       3.50      Curb painting, red or yellow, standard                                                LF             $1.65
+
+    Notes:
+    (a) Pavement section thicknesses shall be as recommended by the geotechnical engineer of record; use of pavement designs
+    shallower than those stated in Uniform Standard Drawing 200 requires Department concurrence.
+    (b) Curb and gutter unit prices include 6-inch aggregate base and standard 24-inch depth.
+
+ SECTION 4 — WATER DISTRIBUTION
+ Coordinate with the serving water district (Las Vegas Valley Water District within its service area; Southern Nevada Water
+ Authority for regional facilities). Unit prices below apply to on-site subdivision water mains up to and including the meter
+ setter or service tap. Regional and offsite transmission mains are priced by separate estimate.
+ 4A. Water Main, ductile iron pipe (DIP), Class 350, in trench, complete in place
+
+
+
+
+Clark County Public Works – Uniform Unit Cost Schedule – Effective 01/01/2026                                                    Page 4
+    Item No.                                          Description                                           Unit           Unit Price
+       4.01      6-inch DIP water main                                                                       LF              $72.00
+       4.02      8-inch DIP water main                                                                       LF              $88.00
+       4.03      10-inch DIP water main                                                                      LF              $108.00
+       4.04      12-inch DIP water main                                                                      LF              $128.00
+       4.05      16-inch DIP water main                                                                      LF              $178.00
+       4.06      20-inch DIP water main                                                                      LF              $232.00
+       4.07      24-inch DIP water main                                                                      LF              $296.00
+
+ 4B. Water Main, PVC C-900, in trench, complete in place
+    Item No.                                          Description                                           Unit           Unit Price
+       4.10      6-inch PVC C-900 water main                                                                 LF              $58.00
+       4.11      8-inch PVC C-900 water main                                                                 LF              $71.00
+       4.12      12-inch PVC C-900 water main                                                                LF              $94.00
+
+ 4C. Valves, Hydrants, and Appurtenances
+    Item No.                                          Description                                           Unit           Unit Price
+       4.20      Gate valve, 6-inch, resilient wedge, with box and cover                                     EA             $2,150.00
+       4.21      Gate valve, 8-inch, resilient wedge, with box and cover                                     EA             $2,750.00
+       4.22      Gate valve, 10-inch, resilient wedge, with box and cover                                    EA             $3,650.00
+       4.23      Gate valve, 12-inch, resilient wedge, with box and cover                                    EA             $4,550.00
+       4.24      Butterfly valve, 16-inch, with box and cover                                                EA             $7,200.00
+       4.25      Butterfly valve, 20-inch, with box and cover                                                EA            $10,400.00
+       4.26      Butterfly valve, 24-inch, with box and cover                                                EA            $14,800.00
+       4.27      Fire hydrant, three-way, complete with lateral, bury, break-off, and valve                  EA             $6,850.00
+       4.28      Blow-off assembly, 2-inch                                                                   EA             $1,875.00
+       4.29      Air release / vacuum valve assembly, 2-inch, complete with vault                            EA             $5,400.00
+       4.30      Service tap and lateral, 1-inch, main to meter setter, ≤ 30 ft                              EA             $1,650.00
+       4.31      Meter setter, 1-inch, in box                                                                EA              $985.00
+       4.32      Service tap and lateral, 1.5-inch, main to meter setter, ≤ 30 ft                            EA             $2,200.00
+       4.33      Service tap and lateral, 2-inch, main to meter setter, ≤ 30 ft                              EA             $2,850.00
+       4.34      Connection to existing water main, wet tap, all sizes ≤ 12-inch                             EA             $6,500.00
+       4.35      Thrust block, cast-in-place, up to 12-inch main                                             EA              $475.00
+       4.36      Pressure testing and disinfection, per water district specification                         LF               $2.10
+
+    Notes:
+    (a) Water main unit prices include bedding, backfill, fittings not requiring restraint, tracer wire, and warning tape.
+    (b) Restrained joint fittings, thrust restraints beyond standard, and pressure-reducing stations shall be estimated separately.
+    (c) Meter itself is furnished by the water district; only the setter is priced above.
+
+ SECTION 5 — SANITARY SEWER
+ Coordinate with the Clark County Water Reclamation District (CCWRD) or applicable municipal reclamation utility.
+ Prices apply to gravity collection systems and gravity manholes; force mains and lift stations by separate estimate.
+
+
+
+Clark County Public Works – Uniform Unit Cost Schedule – Effective 01/01/2026                                                           Page 5
+ 5A. Gravity Sewer Main, PVC SDR 35, in trench, complete in place
+    Item No.                                         Description                                        Unit           Unit Price
+       5.01      8-inch PVC gravity sewer, ≤ 8 ft cover                                                  LF              $62.00
+       5.02      8-inch PVC gravity sewer, > 8 ft and ≤ 12 ft cover                                      LF              $82.00
+       5.03      8-inch PVC gravity sewer, > 12 ft and ≤ 16 ft cover                                     LF             $118.00
+       5.04      10-inch PVC gravity sewer, ≤ 12 ft cover                                                LF              $96.00
+       5.05      12-inch PVC gravity sewer, ≤ 12 ft cover                                                LF             $118.00
+       5.06      15-inch PVC gravity sewer, ≤ 12 ft cover                                                LF             $148.00
+       5.07      18-inch PVC gravity sewer, ≤ 12 ft cover                                                LF             $186.00
+       5.08      21-inch PVC gravity sewer, ≤ 14 ft cover                                                LF             $232.00
+       5.09      24-inch PVC gravity sewer, ≤ 14 ft cover                                                LF             $278.00
+
+ 5B. Manholes and Appurtenances
+    Item No.                                         Description                                        Unit           Unit Price
+       5.20      Sanitary sewer manhole, 48-inch dia., depth ≤ 8 ft                                      EA            $5,750.00
+       5.21      Sanitary sewer manhole, 48-inch dia., depth > 8 and ≤ 12 ft                             EA            $7,600.00
+       5.22      Sanitary sewer manhole, 60-inch dia., depth ≤ 12 ft                                     EA            $9,800.00
+       5.23      Sanitary sewer manhole, 60-inch dia., depth > 12 and ≤ 16 ft                            EA           $12,900.00
+       5.24      Manhole additional depth beyond schedule, per foot                                      VF             $625.00
+       5.25      Drop connection, exterior, sized per detail                                             EA            $2,450.00
+       5.26      Interior lining, epoxy or calcium aluminate, on manhole                                 VF             $325.00
+       5.27      Sewer service lateral, 4-inch, from main to right-of-way line                           EA            $1,275.00
+       5.28      Sewer service lateral, 6-inch, from main to right-of-way line                           EA            $1,650.00
+       5.29      Cleanout, 4-inch or 6-inch, at right-of-way line                                        EA             $485.00
+       5.30      Connection to existing manhole, core drill and boot                                     EA            $3,200.00
+       5.31      Air testing and mandrel testing, per specification                                      LF              $1.55
+       5.32      Television inspection (CCTV), post-construction                                         LF              $2.85
+
+    Notes:
+    (a) Depth measured from finished surface to invert. Sewer mains deeper than 16 ft, or in high groundwater conditions, shall be
+    estimated by supplemental analysis.
+    (b) Manhole prices include frame and cover, base slab, and standard channelization.
+
+ SECTION 6 — DRY UTILITIES (JOINT TRENCH)
+ Dry utility work is designed and constructed under the direction of the composite utility coordinator. The unit prices below
+ apply to civil trenching, sand bedding, backfill, warning tape, and re-grading only. Conduit, cable, transformer, pedestal,
+ and switchgear pricing shall be obtained from the serving purveyors and shall not be duplicated by the engineer's estimate
+ for bonding.
+
+    Item No.                                         Description                                        Unit           Unit Price
+                 Joint trench, 24-inch wide, ≤ 42-inch depth, sand bedding and backfill, all
+       6.01                                                                                              LF              $18.75
+                 excavation
+       6.02      Joint trench, 30-inch wide, ≤ 48-inch depth, sand bedding and backfill                  LF              $22.50
+       6.03      Joint trench, 36-inch wide, ≤ 54-inch depth, sand bedding and backfill                  LF              $27.25
+       6.04      Sand backfill, imported bedding sand only                                               CY              $32.00
+
+
+Clark County Public Works – Uniform Unit Cost Schedule – Effective 01/01/2026                                                        Page 6
+    Item No.                                           Description                                         Unit           Unit Price
+       6.05      Concrete-encased conduit crossing, per detail                                              LF              $58.00
+       6.06      Bore and jack, under existing pavement, 4-inch through 6-inch casing                       LF             $155.00
+       6.07      Bore and jack, under existing pavement, 8-inch through 12-inch casing                      LF             $225.00
+       6.08      Transformer pad, in place, standard sub-surface vault                                      EA            $2,850.00
+       6.09      Handhole or pull box, standard 30" x 48"                                                   EA             $985.00
+       6.10      Streetlight foundation, standard 30-inch dia., 6-ft deep, cast-in-place                    EA            $1,650.00
+       6.11      Streetlight pole, 25-ft aluminum with LED luminaire                                        EA            $4,200.00
+       6.12      Streetlight conduit and conductor, in joint trench                                         LF              $8.50
+       6.13      Streetlight service pedestal, complete                                                     EA            $6,800.00
+
+    Notes:
+    (a) Joint trench length is measured once regardless of the number of utilities occupying the trench.
+    (b) Where the composite utility plan calls for a widened trench to accommodate additional utilities, the next-larger unit price applies.
+
+ SECTION 7 — LANDSCAPE AND IRRIGATION
+ Unit prices in this section apply to landscape and irrigation improvements within HOA-owned common area, entry
+ features, medians, and public rights-of-way, priced as installed and inclusive of a 90-day plant establishment period. Water
+ conservation compliance (Title 30, Chapter 30.64) is not separately priced and shall be included in the landscape architect's
+ estimate.
+ 7A. Landscape
+    Item No.                                           Description                                         Unit           Unit Price
+       7.01      Soil preparation, ripping, amendment, and fine grading, planted area                       SF              $0.42
+       7.02      Decomposed granite surfacing, 3-inch depth, on filter fabric                               SF              $1.15
+       7.03      Cobble surfacing, 3-inch to 6-inch, on filter fabric                                       SF              $2.40
+       7.04      Rip-rap accent, 8-inch to 12-inch, on filter fabric                                        SF              $3.25
+       7.05      Boulder placement, ¼-ton to 1-ton, delivered and set                                       EA             $185.00
+       7.06      Boulder placement, 1-ton to 3-ton, delivered and set                                       EA             $425.00
+       7.07      Boulder placement, > 3-ton, delivered and set                                              EA             $850.00
+       7.08      Tree, 15-gallon container, planted, staked, and mulched                                    EA             $215.00
+       7.09      Tree, 24-inch box, planted, staked, and mulched                                            EA             $485.00
+       7.10      Tree, 36-inch box, planted, staked, and mulched                                            EA            $1,150.00
+       7.11      Shrub, 1-gallon container, planted                                                         EA              $18.50
+       7.12      Shrub, 5-gallon container, planted                                                         EA              $34.00
+       7.13      Shrub, 15-gallon container, planted                                                        EA             $138.00
+       7.14      Accent grass or perennial, 1-gallon container                                              EA              $17.50
+       7.15      Groundcover, flatted, 4-inch pot                                                           EA              $6.50
+       7.16      Functional turf sod, tall fescue blend, on prepared subgrade                               SF              $2.15
+       7.17      Concrete mow strip, 6-inch wide x 8-inch deep                                              LF              $12.75
+
+ 7B. Irrigation
+    Item No.                                           Description                                         Unit           Unit Price
+       7.30      Irrigation controller, smart, weather-based, wall-mounted, 24-station                      EA            $3,850.00
+
+
+Clark County Public Works – Uniform Unit Cost Schedule – Effective 01/01/2026                                                          Page 7
+    Item No.                                          Description                                      Unit           Unit Price
+       7.31      Irrigation controller pedestal enclosure, stainless steel                              EA            $1,950.00
+       7.32      Reduced-pressure backflow preventer, 2-inch, with enclosure                            EA            $4,600.00
+       7.33      Master valve, 2-inch, with box                                                         EA             $685.00
+       7.34      Flow sensor, 2-inch, with box                                                          EA             $985.00
+       7.35      Remote control valve, 1-inch, with box                                                 EA             $275.00
+       7.36      Remote control valve, 1.5-inch, with box                                               EA             $385.00
+       7.37      Quick coupler, 1-inch, with box                                                        EA             $145.00
+       7.38      Mainline, Class 315 PVC, 2-inch, in trench                                             LF              $9.25
+       7.39      Mainline, Class 315 PVC, 3-inch, in trench                                             LF              $14.50
+       7.40      Lateral line, Class 200 PVC, 1-inch, in trench                                         LF              $3.15
+       7.41      Drip tubing, subsurface, 12-inch on-center emitters, in prepared bed                   SF              $0.65
+       7.42      Point-source drip emitter assembly, per tree or shrub                                  EA              $12.50
+       7.43      Pop-up spray head, rotor or fixed, in turf area                                        EA              $42.00
+       7.44      Sleeve under pavement, 4-inch PVC                                                      LF              $16.00
+       7.45      Sleeve under pavement, 6-inch PVC                                                      LF              $22.75
+       7.46      Irrigation service tap and meter setter, 1-inch, dedicated landscape meter             EA            $1,850.00
+
+    Notes:
+    (a) Turf items shall be estimated only for functional turf classifications recognized under Chapter 30.64 and SNWA guidance;
+    nonfunctional turf shall not be included in the engineer's estimate for bonding.
+    (b) Trees on the street frontage tree schedule shall be priced at the 24-inch box unit price at minimum.
+
+ SECTION 8 — MONUMENTATION AND SURVEY
+ Unit prices apply to permanent monuments and lot corners required under Nevada Revised Statutes 625 and the recorded
+ final map. Set by, or under the direct supervision of, a Nevada-licensed Professional Land Surveyor.
+
+    Item No.                                          Description                                      Unit           Unit Price
+                 Section, quarter-section, or centerline monument, well-and-cover in pavement, per
+       8.01                                                                                             EA            $1,650.00
+                 Uniform Standard Drawing
+       8.02      Street centerline intersection monument, well-and-cover in pavement                    EA            $1,275.00
+       8.03      Boundary monument, permanent, 2-inch iron pipe with cap                                EA             $325.00
+       8.04      Lot corner, ½-inch rebar with cap, set flush                                           EA              $85.00
+       8.05      Point on curve or point on tangent, on right-of-way                                    EA              $95.00
+       8.06      Benchmark, brass tablet in concrete, elevation referenced                              EA             $625.00
+       8.07      Monument tie sheet, prepared and filed with County Surveyor                            EA             $210.00
+       8.08      Construction staking, streets, water, sewer, storm drain, per lot                     LOT             $475.00
+       8.09      Record of Survey preparation and recordation, per NRS 625.340 (where required)         LS              Actual
+
+    Notes:
+    (a) Monumentation shall be scheduled for placement after final pavement lift and prior to acceptance; bond amount shall not be
+    released until the County Surveyor confirms all monuments are set and tie sheets filed.
+
+ SECTION 9 — TRAFFIC CONTROL AND SIGNAGE
+ Includes construction-phase traffic control on public streets and permanent post-construction signage and striping not
+ otherwise itemized under Section 3C.
+
+
+Clark County Public Works – Uniform Unit Cost Schedule – Effective 01/01/2026                                                        Page 8
+    Item No.                                           Description                                 Unit         Unit Price
+       9.01      Traffic control plan preparation, sealed by NV-licensed engineer                  LS        Actual, ≥ $2,500
+       9.02      Construction traffic control, standard subdivision, per calendar day              DAY           $685.00
+       9.03      Construction traffic control, arterial or collector interface, per calendar day   DAY          $1,850.00
+       9.04      Portable changeable message sign, per day                                         DAY           $185.00
+       9.05      Temporary striping and markings, water-based                                      LF             $0.95
+       9.06      Type III barricade, in place, per day                                             EA             $28.00
+       9.07      Traffic cones, drums, delineators, per day per unit                               EA             $4.50
+       9.08      Flagging, per flag person per hour                                                HR             $72.00
+       9.09      Permanent regulatory or warning sign, on breakaway post                           EA            $475.00
+       9.10      Guide sign, oversized (D-series or larger), on post                               EA            $850.00
+       9.11      Speed limit sign, complete on post                                                EA            $425.00
+       9.12      Sign face relocation, existing post reused                                        EA            $185.00
+       9.13      Pavement message, "STOP AHEAD," "SCHOOL," or similar, thermoplastic               EA            $475.00
+       9.14      Bike lane symbol, thermoplastic                                                   EA            $185.00
+
+
+ SECTION 10 — MISCELLANEOUS AND SITE APPURTENANCES
+    Item No.                                           Description                                 Unit         Unit Price
+      10.01      Retaining wall, split-face CMU, ≤ 4 ft exposed height                             SF             $52.00
+      10.02      Retaining wall, split-face CMU, > 4 ft and ≤ 6 ft exposed height                  SF             $68.00
+      10.03      Perimeter block wall, 6-ft split-face CMU on continuous footing                   LF            $148.00
+      10.04      Screen wall, decorative, per detail                                               LF            $185.00
+      10.05      Pedestrian gate, tubular steel, 4-ft wide                                         EA           $1,250.00
+      10.06      Vehicular gate, tubular steel, 12-ft wide with hardware                           EA           $3,850.00
+      10.07      Trash enclosure, CMU with steel gates, per Uniform Standard Drawing               EA           $6,850.00
+      10.08      Bollard, steel-filled, concrete-encased                                           EA            $685.00
+      10.09      Bench, park, 6-ft, concrete-anchored                                              EA           $1,650.00
+      10.10      Trash receptacle, park, concrete-anchored                                         EA            $985.00
+      10.11      Mailbox cluster, USPS-approved CBU, 16-unit, on pedestal                          EA           $4,250.00
+      10.12      Entry monument sign, standard, per HOA package                                    LS        Actual, ≥ $12,500
+
+
+ SECTION 11 — CONTINGENCY, MOBILIZATION, AND ALLOWANCES
+ The engineer's estimate for bonding shall include the following allowances, calculated as a percentage of the sum of items
+ in Sections 1 through 10 (construction subtotal):
+
+      Item                                                 Description                                          Rate
+   11.01         Mobilization, demobilization, and bonds (contractor's)                              5.0%
+   11.02         Design, survey, and construction inspection (engineer of record and County)         8.0%
+   11.03         Contingency                                                                         10.0%
+                                                                                                     3.0% per year beyond 24
+   11.04         Escalation reserve, where bond term exceeds 24 months
+                                                                                                     months
+
+ Total bonding amount = (construction subtotal) × (1 + 11.01 + 11.02 + 11.03 + applicable 11.04).
+
+Clark County Public Works – Uniform Unit Cost Schedule – Effective 01/01/2026                                                Page 9
+ Where a subdivider requests reduction and release of bonded amount upon acceptance of an identifiable subset of
+ improvements (e.g., off-site improvements accepted in advance of on-site completion), reductions shall be computed
+ against the itemized construction subtotal only; mobilization, design/inspection, contingency, and escalation reserve shall
+ remain proportional to remaining unfinished construction until final acceptance.
+
+ SECTION 12 — GENERAL PROVISIONS
+ 12.01 Use of this Schedule. Unit prices published herein represent Southern Nevada market averages and are intended for
+ bonding purposes only. They do not constitute a bid, a fixed-price contract, or an offer to construct. Contractors,
+ subcontractors, and suppliers may propose actual pricing at variance with this schedule; such pricing does not modify the
+ bonding amount unless approved in writing under the preface conditions.
+ 12.02 Rounding. Engineer's estimates prepared against this schedule shall carry unit prices to the cent as published and
+ total costs to the dollar. The final bonded amount shall be rounded up to the next $1,000.
+ 12.03 Substitutions. Where an itemized quantity is bonded against a Uniform Standard Drawing that is superseded during
+ the bond term, the substituted standard shall govern construction; the bonded unit price shall not be adjusted absent a
+ formal amendment.
+ 12.04 Alternate Unit Prices. Alternate unit prices for materials or methods not appearing in this schedule shall be
+ documented under the preface conditions and, once accepted, added to the estimate under the appropriate section with an
+ "A" suffix (for example, 3.01A).
+ 12.05 Addenda. Addenda to this schedule are published on the Department's website and take effect on the date stated in
+ the addendum. Applicants are responsible for verifying that the schedule referenced by the engineer's estimate is current at
+ the time of submittal.
+ 12.06 Questions. Questions regarding the Uniform Unit Cost Schedule may be directed to Clark County Public Works,
+ Development Review Division, at the address and telephone number stated above.
+
+
+        Issued January 2026 by Clark County Public Works, Development Review Division. Next scheduled review: January 2027.
+
+
+
+
+Clark County Public Works – Uniform Unit Cost Schedule – Effective 01/01/2026                                                 Page 10
+CLARK COUNTY PUBLIC WORKS — UNIFORM UNIT COST SCHEDULE
+
+Addendum No. 1 — Section 11 Allowances — Effective 03/01/2026
+
+
+This addendum supplements Section 11 (Mobilization, Bonds, Insurance and Contingency) of the Uniform Unit
+Cost Schedule effective 01/01/2026. It does not alter the unit prices in Sections 1 through 10.
+
+11.05 Agreed lump-sum allowances. The percentages listed at 11.01 through 11.04 are default maxima
+applied where the subdivider and the Department have not agreed otherwise. Where the subdivider and the
+Department agree lump-sum allowances for mobilization, bonds, insurance and contingency in advance of
+bonding, those agreed lump sums govern in place of the corresponding percentages for the purpose of
+computing the total bonding amount.
+
+11.06 Owner-carried design and inspection. Where design, survey and construction inspection under item
+11.02 are carried by the owner outside the bonded estimate and evidenced by executed professional services
+agreements, item 11.02 is not applied to the construction subtotal.
+
+11.07 Statement on the estimate. An engineer’s estimate prepared under 11.05 or 11.06 shall carry a note
+identifying the allowances as agreed lump sums and stating that item 11.02 is owner-carried, so that the bonding
+amount is reproducible from the estimate as submitted.
+
+
+Issued by the Department of Public Works, Development Review Division. Questions regarding application of this addendum should
+be directed to the assigned plan reviewer.
+

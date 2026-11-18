@@ -1,0 +1,11 @@
+# Финальная заявка: спонсируемая модель.
+# Артефакты сгенерированы DeepSeek V3.2 (локальная разработка) — это задокументировано
+# в docs/WRITEUP.md, раздел 1, как того требуют правила конкурса.
+name: ple-agent-harness
+model_api: google-cloud/claude-opus-5-5
+install: >-
+  uv venv --python 3.12 /opt/harness/venv
+  && uv pip install --python /opt/harness/venv/bin/python -r {src}/requirements.txt
+serve: /opt/harness/venv/bin/python {src}/serve.py
+env:
+  PLE_TOKEN_CAP: "1500000"

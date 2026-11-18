@@ -1,0 +1,225 @@
+RED BUTTE FIRE & MATERIALS TESTING
+2201 S West Temple, Salt Lake City, UT 84115 Tel: +1 (801) 555-0138 | redbuttefmt.com
+
+
+Fire Endurance Evaluation of a Non-Load-Bearing Double-Wythe Printed-Concrete Wall
+Assembly
+Testing conducted in accordance with the methodology described in ASTM E119, Standard Test Methods for Fire
+Tests of Building Construction and Materials.
+Report Number: RBFMT-25-0918 Test Date: 09/24/2025 Report Issued: 09/24/2025
+Conducted For: Ocotillo Additive Structures 3175 S Palo Verde Rd Tucson, AZ 85713
+Red Butte Fire & Materials Testing Salt Lake City, UT
+
+
+TABLE OF CONTENTS
+1. Test Standard and Method 2. Specimen Description 3. Instrumentation 4. Test Conduct 5. Results 6. Conclusion 7.
+Instrumentation Calibration Certificates Signatures
+
+
+1. TEST STANDARD AND METHOD
+The evaluation reported here was performed in accordance with ASTM E119, Standard Test Methods for Fire Tests
+of Building Construction and Materials (current edition). One vertical fire-endurance test was performed on the wall
+assembly described in Section 2, using the standard time-temperature curve prescribed by ASTM E119. The
+exposed face of the assembly was subjected to the E119 standard curve delivered by the laboratory's natural-gas
+vertical wall furnace, with furnace temperatures monitored by nine furnace thermocouples symmetrically distributed
+on the exposed face per the standard.
+The assembly was tested as a non-load-bearing partition. The applicable fire-endurance criteria for a
+non-load-bearing wall under ASTM E119 are the following two thermal-transmission conditions on the unexposed
+face:
+• Average unexposed-face criterion. The average temperature rise measured by nine thermocouples
+   symmetrically disposed on the unexposed face of the specimen shall not exceed 139 degC (250 degF) above the
+   initial ambient temperature at any point in the test.
+• Single-point criterion. The temperature rise at any single thermocouple on the unexposed face shall not exceed
+   181 degC (325 degF) above the initial ambient temperature at any point in the test.
+Per ASTM E119, the earlier of the two thermal-transmission criteria governs the reported fire endurance for the
+specimen.
+
+
+2. SPECIMEN DESCRIPTION
+One 3.05 m × 3.05 m (10 ft × 10 ft) specimen was constructed by the client at the Red Butte laboratory prior to test.
+The specimen is a double-wythe 3D-printed concrete wall assembly consisting of two printed concrete leaves
+separated by an open-air cavity and connected by continuous truss-type steel ties.
+
+2.1 Concrete leaves
+• Number of leaves: two, oriented parallel and in registration.
+• Leaf thickness: each leaf 50 mm as printed and cured (siliceous aggregate mix).
+• Aggregate: siliceous.
+• Placement: wet-on-wet extruded 3D printing; nominal 20 mm bead pitch; leaves printed vertically on the
+   specimen frame and cured to the manufacturer's 28-day protocol prior to shipment for test.
+
+2.2 Cavity
+• Cavity width: 205 mm between the interior surfaces of the two leaves.
+• Cavity contents: open air. No insulation, no fill, no membrane, no fire-stop material was present in the cavity as
+   constructed for this test.
+
+2.3 Overall specimen thickness
+• Overall: 305 mm (50 + 205 + 50).
+2.4 Wall ties
+Continuous truss-type (triangular zigzag) ties fabricated from 9-gauge (3.8 mm) galvanized steel wire connect the
+two leaves. Tie schedule:
+Parameter                                                   Value
+Material                                                    Galvanized steel, truss-type (triangular zigzag),
+                                                            continuous
+Wire gauge                                                  9-gauge
+Wire diameter                                               3.8 mm
+Vertical spacing                                            600 mm o.c.
+Horizontal extent                                           Continuous, full specimen width
+Embedment into each leaf                                    25 mm
+
+Ties were placed by the client at each 600 mm horizontal course during printing of the leaves and were embedded 25
+mm into the printed concrete on each side.
+
+
+3. INSTRUMENTATION
+Instrumentation on the unexposed face was applied by Red Butte technicians per ASTM E119. All thermocouples
+were Type K, 20 AWG, glass-braid insulated, fixed to the unexposed face of the specimen with pads per the
+standard.
+
+3.1 Unexposed-face thermocouple layout
+Nine thermocouples, designated TC-1 through TC-9, were installed on the unexposed face in the symmetric pattern
+prescribed by ASTM E119: one thermocouple at the geometric center of the specimen, four at the midpoints of
+imaginary quadrants, and four additional thermocouples such that no thermocouple lies within 305 mm (12 in) of a
+specimen edge and thermocouples are approximately equidistant from one another. The average of the readings
+from TC-1 through TC-9 is the value used for the average unexposed-face criterion.
+A tenth thermocouple, TC-10, was installed as a single-point plotter and continuous strip-chart reference; TC-10
+readings are recorded but are not part of the nine-thermocouple average.
+
+3.2 Position of TC-6 relative to tie course
+The specimen was surveyed for tie positions before instrumentation was applied. During layout of the nine
+unexposed-face thermocouples, thermocouple 6 fell over one of the horizontal courses of steel wall ties: TC-6 is
+located directly opposite a 3.8 mm truss-type tie embedded in the outer (unexposed) leaf. This positioning is retained
+as the E119 symmetric layout was applied without adjustment; the location is documented in the plan diagram below.
+
+3.3 Plan diagram callout (unexposed face)
+UNEXPOSED FACE - PLAN LAYOUT (viewed from unexposed side)
+
+                                          TC-1                     TC-2                      TC-3
+
+
+
+
+                                          TC-4                     TC-5        TC-10         TC-6
+                                                                                                                  tie course
+                                                                                                                  600 mm o.c.
+                                                                                                                  (9-gauge, 3.8 mm)
+                                          TC-7                     TC-8                      TC-9
+
+
+
+
+                                      TC-10 (plotter reference, near geometric center) not part of the nine-thermocouple average.
+
+
+Legend: circle = thermocouple on plain concrete; square = TC-6, positioned over a horizontal truss-type tie course.
+
+
+The tie course crossing behind TC-6 constitutes a metallic path from the exposed leaf to the unexposed leaf at that
+location. Readings from TC-6 are therefore expected to reflect the local thermal signature of that path and are
+reported alongside the eight other unexposed-face thermocouples without adjustment or omission.
+
+3.4 Furnace and ambient instrumentation
+• Nine furnace thermocouples (TCF-1 through TCF-9) per E119, symmetrically placed within 6 in of the exposed
+   face, monitored delivery of the standard time-temperature curve.
+• Two ambient thermocouples (TC-A1, TC-A2) recorded laboratory ambient at the unexposed side, from which the
+   initial ambient reference used for the rise criteria was derived.
+• Initial ambient (average of TC-A1, TC-A2 at t = 0): 21.0 degC.
+3.5 Data acquisition
+All thermocouple channels were logged at 1 Hz to a computerized data acquisition system with NIST-traceable
+channel calibration. TC-10 was additionally recorded on an independent single-point strip-chart plotter to provide a
+mechanical secondary trace.
+
+
+4. TEST CONDUCT
+The instrumented specimen was mounted in the laboratory's vertical wall furnace on the morning of 09/24/2025. The
+exposed face was oriented toward the furnace chamber. The specimen was clamped at the perimeter with the same
+frame and gasket detail routinely used for non-load-bearing partition specimens at this laboratory.
+The furnace was ignited and the exposed face was subjected to the ASTM E119 standard time-temperature curve
+from t = 0 onward. Furnace temperatures tracked the standard curve within the tolerance band prescribed by ASTM
+E119 for the full duration of the test (deviation area within the specified 10% at 1 hr and 7.5% at 2 hr and beyond).
+The specimen was monitored continuously. The test was conducted to termination on the governing
+thermal-transmission criterion as defined in Section 1 above; no hose-stream retest was performed as none was
+contracted. No load was applied to the specimen (non-load-bearing configuration).
+Test start: 09:02 MDT, 09/24/2025. Test termination: 11:00 MDT, 09/24/2025 (118 min after start), at which point the
+governing thermal-transmission criterion was reached. Data acquisition continued for 45 additional minutes past
+termination to characterize the full unexposed-face response, at which point the average-rise criterion was also
+reached (see Section 5).
+
+
+5. RESULTS
+5.1 Average unexposed-face temperature rise (nine-thermocouple mean)
+The arithmetic mean of TC-1 through TC-9, expressed as rise above the initial ambient of 21.0 degC, is the value
+evaluated against the average criterion.
+• Criterion: 139 degC (250 degF) rise above initial ambient.
+• The nine-thermocouple mean rise reached 139 degC at 163 min after test start.
+5.2 Single-point unexposed-face temperature rise
+The maximum rise across the nine unexposed-face thermocouples, at each instant, was tracked continuously against
+the single-point criterion.
+• Criterion: 181 degC (325 degF) rise above initial ambient.
+• The maximum rise reached 181 degC at 118 min after test start.
+• Governing thermocouple at the moment the criterion was reached: thermocouple 6, positioned over a horizontal
+   steel tie course as described in Section 3.2 and shown in the plan diagram.
+At 118 min, TC-6 recorded 181 degC rise above ambient while the nine-thermocouple mean rise stood at
+approximately 96 degC. The remaining eight unexposed-face thermocouples (TC-1 through TC-5 and TC-7 through
+TC-9) had not individually reached the single-point limit at that time. TC-10 (single-point plotter, near geometric
+center) tracked closely with the mean of TC-1 through TC-9 throughout.
+
+5.3 Governing endurance
+Per ASTM E119, the earlier of the two thermal-transmission criteria governs the reported fire endurance:
+
+ Criterion                                Value                                    Time reached
+ Average unexposed-face rise              139 degC                                 163 min
+ (nine-TC mean)
+ Single-point rise (any single TC)        181 degC                                 118 min (at thermocouple 6)
+
+The single-point criterion was reached first at 118 min and therefore governs the reported fire endurance for this
+specimen.
+> Reported endurance D = 118 min.
+
+
+6. CONCLUSION
+Under the conditions of ASTM E119 (standard time-temperature curve, non-load-bearing, no applied load, no
+hose-stream retest contracted), the double-wythe 3D-printed concrete wall assembly described in Section 2 exhibited
+a measured fire endurance of 118 min, governed by the single-point criterion at thermocouple 6, which was
+positioned over a horizontal truss-type steel tie course. The average unexposed-face criterion was reached later at
+163 min and does not govern.
+This report documents the measured thermal-transmission behavior of the specimen tested. Certification of a
+fire-resistance rating for the assembly is the domain of the certifying fire-protection engineer of record for the project
+and is not within the scope of this laboratory or this report.
+
+
+7. INSTRUMENTATION CALIBRATION CERTIFICATES
+All thermocouples and data-acquisition channels employed on this test were calibrated per Red Butte's
+NIST-traceable procedure within the 90 days preceding the test date. Certificates on file at the laboratory and
+available on request:
+
+ Certificate No.                 Instrument             Channels               Cal. Date             Traceability
+ RBFMT-CAL-25-0812-TC            Type K TC set          10                     2025-08-12            NIST-traceable,
+                                 (TC-1 through                                                       per lab
+                                 TC-10)                                                              SOP-CAL-04
+ RBFMT-CAL-25-0812-DAQ           Data acquisition       24                     2025-08-12            NIST-traceable,
+                                 chassis, channels                                                   per lab
+                                 1-24                                                                SOP-CAL-06
+Certificate No.                  Instrument             Channels             Cal. Date              Traceability
+RBFMT-CAL-25-0815-FURN Furnace TCF set                  9                    2025-08-15             NIST-traceable,
+                       (TCF-1 through                                                               per lab
+                       TCF-9)                                                                       SOP-CAL-05
+RBFMT-CAL-25-0819-AMB            Ambient TC pair        2                    2025-08-19             NIST-traceable,
+                                 (TC-A1, TC-A2)                                                     per lab
+                                                                                                    SOP-CAL-04
+RBFMT-CAL-25-0902-PLOT           Single-point plotter   1                    2025-09-02             NIST-traceable,
+                                 (TC-10 secondary)                                                  per lab
+                                                                                                    SOP-CAL-08
+
+All certificates were in force on the test date and cover the full range of temperatures observed during the test.
+
+
+SIGNATURES
+Report prepared and issued by Red Butte Fire & Materials Testing.
+_________________________________________
+Glen Whitfield
+Lab Manager, Red Butte Fire & Materials Testing
+2201 S West Temple, Salt Lake City, UT 84115
+Date: 09/24/2025
+End of report RBFMT-25-0918. Page 1 of 1 of narrative; specimen photographs and raw thermocouple time-series
+are retained on file at the laboratory and available under separate cover on written request from the client of record.
+
