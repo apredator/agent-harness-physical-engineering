@@ -1,7 +1,7 @@
 # ple-agent-harness: Specification Is the Task
 
 - Repo: https://github.com/apredator/agent-harness-physical-engineering
-- Commit SHA: 91764a30ea9e9dcb4d1fb21fee9d3362e056bf93
+- Commit SHA: see Project Links (40-char SHA of the submitted commit)
 - Primary model_api: `google-cloud/claude-opus-5-5`
 - Other models tested: `deepseek-v4-pro`, `deepseek-chat` (DeepSeek V3.2), `yandexgpt` — all non-sponsored, local-dev only
 - Dev score (29 tasks): **0.0136** | **$0.17/task** | **≈6 min/task**
