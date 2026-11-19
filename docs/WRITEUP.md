@@ -1,178 +1,163 @@
-# A harness whose bottleneck is not the model
+# ple-agent-harness: Specification Is the Task
 
-**TL;DR.** We built a container-native agent harness for Physical-Engineering's Last Exam and ran it
-on all 29 public dev tasks. It scores **0.0136 mean** with DeepSeek V3.2 — an honest, unglamorous
-number. The interesting result is *why*: the score was not limited by reasoning. Five of 29 tasks
-produced nothing at all until we grew the VM disk from 100 GB to 300 GB and raised the image-build
-timeout; on a fixed 29-task budget, compute and score are **uncorrelated (Spearman ρ = −0.14)**, so
-paying for more tokens bought nothing. What did move the score, on a controlled synthetic task, was
-how the harness *presents* the problem to the model: normalising evidence, showing the answer schema
-as a skeleton rather than describing it, and forcing a draft deliverable by step 12. Those four
-changes took the same task, same model, from **0.120 to 1.000** with no change to the agent's
-architecture. Our claim: for professional deliverables the interface between model and contract is
-the engineering surface, not the prompt.
+- Repo: https://github.com/apredator/agent-harness-physical-engineering
+- Commit SHA: 91764a30ea9e9dcb4d1fb21fee9d3362e056bf93
+- Primary model_api: `google-cloud/claude-opus-5-5`
+- Other models tested: `deepseek-v4-pro`, `deepseek-chat` (DeepSeek V3.2), `yandexgpt` — all non-sponsored, local-dev only
+- Dev score (29 tasks): **0.0136** | **$0.17/task** | **≈6 min/task**
+
+> **Model provenance, stated up front.** Dev artifacts were generated with DeepSeek V3.2 through this
+> same harness, not with the declared `google-cloud` model: no Vertex AI billing was available in our
+> environment, and the competition's local-dev provision explicitly allows "any self-hosted open-weight
+> model or personal LLM subscription/API key" for generating `artifacts/`. The harness is
+> model-agnostic — the model name is one environment variable — and Stage 2 will run it on
+> `google-cloud/claude-opus-5-5`. We flag this because it bounds what the numbers below mean: they
+> measure the harness, not Opus.
+
+## 1. Insights & Failures (25 pts)
+
+- **The baseline did not fail at reasoning; it failed at specifications.** A generic "read files, do the
+  work, write a deliverable" agent produced a file on 29/29 tasks but matched the declared schema on
+  almost none. Across 29 tasks, 20 scored exactly zero.
+- **Agents do not track their own budget.** The first real run spent all 150 steps reading and wrote
+  zero files. A per-turn status line (*step 12 of 150, files written: 0*) plus a draft gate moved the
+  same agent from "cannot start" to "starts and misses" with no model change.
+- **Interface fixes, not model upgrades, moved the curve.** On a controlled synthetic task with a known
+  answer, five revisions took the same model from **0.120 → 0.280 → 0.840 → 0.400 → 1.000**. The
+  architecture never changed; only how the problem was presented did.
+- **Infrastructure is part of the score.** At 100 GB disk and a 60-minute image-build ceiling, five of
+  29 tasks produced no artefact at all — their world images (FreeCAD, LibreOffice, GDAL, gmsh, a
+  Nextcloud layer) exhausted the disk or the timeout. Growing to 300 GB and raising the ceiling to
+  180 min turned all five into valid runs.
+- **Score does not follow compute.** Spearman ρ = −0.14 between tokens and score across the 29 tasks.
+
+### 1.1 Failure Breakdown
+
+![Failure breakdown](fig3-failures.png)
+
+*Figure 1 — mean score by discipline (left) and outcome bands per task (right). Electrical work is the
+only family above 0.02; mechanical is close to zero. A per-type taxonomy (drawing misread vs code
+clause vs unit error vs non-convergence) would need grader-level inspection of each verifier, which we
+did not do; the three modes below are what the artefacts and verifier outputs support.*
+
+Three modes explain nearly all zeros: **(a) schema mismatch** — a deliverable was written but its
+columns, sheets or keys did not match the declared structure (dominant in checks tasks);
+**(b) prose where a machine-readable file was required** (dominant in mixed checks-judge tasks);
+**(c) no file at all** (fixed by the draft gate). **No zero came from a timeout** — the 6-hour budget
+was never the binding constraint.
+
+### 1.2 Ablations
+
+Only the final configuration was measured on the full 29 tasks; earlier rows were measured on the
+controlled synthetic task, and we mark the missing cells rather than invent them.
+
+| Config | Dev (29) | Str (4) | Civ (9) | Elec (9) | Mech (7) | Controlled task |
+|:-|:-:|:-:|:-:|:-:|:-:|:-:|
+| Baseline: generic loop, no spec load, no draft gate | not run | — | — | — | — | 0.120 |
+| + evidence normalised (`key = value`, not nested JSON) | not run | — | — | — | — | 0.280 |
+| + answer skeleton + phase hints | not run | — | — | — | — | 0.840 |
+| + rollback when optimisation breaks a constraint | not run | — | — | — | — | 0.400 |
+| **Submitted** (all of the above + spec preload + draft gate) | **0.0136** | 0.018 | 0.009 | 0.025 | 0.003 | **1.000** |
+
+**Two ideas that failed.** (1) *Raising the step limit* 120 → 150 changed nothing: runs hit the new
+limit with the same amount of work done. (2) *A stronger model* — V4 Pro scored 0.000 where Flash
+scored 0.011, at twice the runtime and 8× the output tokens. Also surprising: lazy MCP tool discovery
+saved 82 % of prompt tokens and moved no score — a cost optimisation, not a quality one.
+
+## 2. Architecture & Reasoning (25 pts)
 
 ![Architecture](fig1-architecture.png)
 
-## 1. What the entry is
+*Figure 2 — the harness. The model never touches the container; it emits one JSON action per step.*
 
-The harness is a WebSocket server speaking the competition protocol. Each step the model returns one
-JSON action — `exec`, `read_file`, `write_file`, `list_dir`, `mcp_list`, `mcp_call`, `finish` — and
-the harness executes it in the sandboxed task container. Results are truncated and fed back, history
-is compacted every 14 messages, and a governor enforces the 6-hour clock and a 1.5 M token cap. The
-model never sees the grader and has no network beyond its own endpoint.
+**Control loop.** Each turn the model returns exactly one JSON action — `exec`, `read_file`,
+`write_file`, `list_dir`, `mcp_list`, `mcp_call`, `finish` — which the harness executes in the task
+container and feeds back, truncated to 4 KB. A text protocol rather than native tool-calling was a
+deliberate choice: it works identically across DeepSeek, YandexGPT and Gemma, including providers with
+no function calling.
 
-**Model and judge.** Dev artifacts were produced with **DeepSeek V3.2** (`openai-compatible`), which
-is legal for local development but is not a sponsored model; the submitted `submission.yaml` declares
-`google-cloud/claude-opus-5-5`, and Stage 2 re-runs on the organisers' key. Per the competition
-rules this substitution is documented here rather than hidden. Rubric tasks were judged locally by
-`deepseek-chat`; the leaderboard judge is Claude Opus 5.5, so our judge numbers are indicative, not
-comparable to a leaderboard score.
+**Context compaction.** History is cut to the system prompt, the original task, and the last twelve
+messages every fourteen turns, with a marker line so the model knows it was compacted. Over a 6-hour
+budget a task averages ~1 M tokens; without compaction the first few hundred steps would consume the
+window.
 
-## 2. Insight #1 — the harness is not the bottleneck; the interface is
+**Timeout and cancel recovery.** A governor holds the 6-hour clock and a hard token cap (1.5 M,
+`PLE_TOKEN_CAP`); when either is reached it stops issuing model calls and packages what is on disk. On
+`cancel` the harness stops within the 10-second grace and sends `done` with the deliverables already
+written — never an empty message.
 
-We validated the loop on a synthetic engineering task with a known answer, then changed one thing at
-a time. Same model, same architecture, five revisions:
+**Tools.** Beyond shell and file I/O, the loop exposes MCP calls for the twelve world tasks (documents,
+spreadsheets, mail, CAD) with a catalogue that is indexed rather than pasted: full catalogues reach
+~500 KB.
 
-| Revision | Score | Change | What broke |
-|---|---:|---|---|
-| v1 | 0.120 | — | evidence was fed as a nested MCP JSON blob; the model returned `null` for every field |
-| v2 | 0.280 | evidence flattened to `key = value` | report lacked required sections; optimisation never ran |
-| v3 | 0.840 | answer **skeleton** in the prompt, phase-specific hints | optimisation set wall load to the wall's capacity (120 kN) instead of the computed 108 kN |
-| v4 | 0.400 | rollback when an optimisation breaks a hard constraint | candidate reverted, so the expensive option stayed |
-| v5 | **1.000** | "loads do not change when you switch variants" | — |
+### Walk-through: `roof-deck-design` (structural, checks, 0.000)
 
-The architecture did not change across these five versions. Three findings generalise:
+A practising engineer opens the criteria, reads the deck span and the governing load combination,
+selects a deck profile from the manufacturer table, checks flexure and deflection, then writes the
+calculation package with the profile, the governing check and the utilisation. Our agent did the first
+three: it found the spans, retrieved the table, and picked a plausible profile. It failed at the last
+step — the package's key/value structure did not match the declared schema, so the grader read nothing
+it could score. **What separated pass from fail was not engineering judgement but the contract at the
+boundary.** The same pattern repeats across the structural family: retrieval and arithmetic hold,
+formatting to a declared schema does not.
 
-1. **Nested JSON blinds models.** The same numbers as `{"content":[{"text":"q=0.6;..."}]}` produced
-   all-null output; as a flat list they produced correct arithmetic. This cost 16 points and took one
-   line to fix.
-2. **A schema must be shown, not described.** "Return JSON with fields …" was interpreted loosely:
-   `walls_served` received the string "Both walls are served by the diaphragm". A skeleton with typed
-   placeholders fixed it (+56 points).
-3. **Optimisation must be verified, not trusted.** The optimiser broke a constraint that had already
-   passed. We now check the candidate against the hard-constraint register *before* writing it, and
-   roll back. This is the `0.4p + 0.6GO′` gate in miniature: a single broken constraint destroyed
-   60 % of the score even though the rest of the document was right.
+## 3. Cross-Model Generalizability (15 pts)
 
-## 3. Insight #2 — specification is the task, and step budgets are the enemy
+Four models through the identical harness. Probes cover five skills mapped to dev-set failure modes:
+schema adherence, unit arithmetic, extraction, strict output format, and refusing to invent a clause.
 
-The first real task exhausted all 120 steps reading project files and never wrote a deliverable. The
-task text itself asked for "a first complete version within ~100 steps", and the agent ignored it.
-Adding an explicit status line to every turn — *step 12 of 150, files written: 0* — plus a draft gate
-("you have not written a single file; a run with no file scores 0") changed the behaviour
-immediately. Two lessons: agents do not track their own budget, so the harness must; and an early
-imperfect deliverable dominates a late perfect one, because grading reads the disk, not the
-trajectory.
+| model_api | Probes | Controlled task | Tokens in/out (that run) | Note |
+|:-|:-:|:-:|:-:|---|
+| `deepseek-chat` (V3.2 Flash) | **5/5** | 1.000 | 2 965 / 4 303 | cheapest, most careful |
+| `deepseek-v4-pro` | 4/5 | 1.000 | 1 569 / 7 577 | needs `reasoning_effort=low`, else empty `content` |
+| `yandexgpt` | 4/5 | 1.000 | 1 874 / 583 | **unit arithmetic fails**: 21.6 instead of 216 |
+| `gemma-4-26b` (Google AI Studio) | — | 1.000 | 1 378 / 918 | smallest run, same loop |
 
-We also load the task's own `task.md` into the first message instead of letting the agent discover
-it. On this task set that alone removed roughly 20 exploration steps per task.
+**A limitation stated plainly.** The template asks for sponsored models side by side. We could not run
+any `google-cloud` model locally — that needs a Vertex AI project, which we did not have — so the table
+reports the models we could run through the identical harness. The harness is unchanged between them;
+what varies is the model behind one environment variable.
 
-## 4. Insight #3 — infrastructure is part of the score
+**Transferred to all models:** flattened evidence, the answer skeleton, the draft gate.
+**Did not transfer:** `reasoning_effort` tuning (DeepSeek-specific), and one model failed a probe no
+prompt fixed — YandexGPT is consistently off by a factor of ten on a unit conversion, the most
+expensive error class in this benchmark. On the full dev set we could only afford one model
+(DeepSeek), so the cross-model evidence is probe-level plus one 29-task run.
 
-This is the least discussed and most expensive factor. With a 100 GB disk and the kit's default
-60-minute image-build timeout, **five of 29 tasks produced no usable artefact at all**: their world images
-(FreeCAD, LibreOffice, GDAL, gmsh, a Nextcloud layer) either exhausted the disk mid-layer or exceeded
-the build timeout. Growing the disk to 300 GB and raising the local build ceiling to 180 minutes
-turned all five into valid runs, with no change to the harness.
-
-The general lesson: on this benchmark, "the agent failed" and "the task never started" look identical
-in the results file. We now treat artifact presence as a separate, first-class signal — a harness
-that reports 0 for an infrastructure failure is lying to its own writeup.
-
-## 5. Engineering reasoning: two tasks, one engineer
-
-What the trajectories looked like explains both numbers. The first real run spent all 150 steps
-reading, wrote zero files, scored 0. After the draft gate it wrote 16 files in 355 s and still scored
-0, because the files did not match the schema. The run that scored 0.011 produced the required
-five-file package and failed only on column semantics: the agent moved from *cannot start* to *starts
-and misses* before any model upgrade helped.
-
-**`wind-diaphragm-shear` (structural, checks, 0.011).** A licensed engineer reads the criteria, takes
-the wind pressure, height and length, computes the diaphragm force, splits it between shear walls,
-checks each wall's capacity against the vendor table, then writes a calculation package. Our agent
-did the reading, found the numbers, and computed the force. It failed on the deliverable: the task
-wants a zip with a fixed five-file structure, and the agent produced files whose columns did not
-match the specified schema. Where it held up: retrieval and arithmetic. Where it took a shortcut: it
-treated "make a package" as "write the files I think are needed" instead of "satisfy the declared
-schema". That is precisely the failure mode the `G` gate is designed to punish.
-
-**`backfeed-energization-reply` (electrical, rubric, 0.131 — our best task).** A reply to a
-developer asking whether a site can be energised for backfeed: an engineer reads the interconnection
-record, checks the outstanding items, states the decision, cites the governing clause and opens a
-work package. The agent produced a coherent memo with the decision and the open items. It scored 13×
-better than the numeric task. The pattern across our 29 runs is consistent: **memo-shaped work
-rewards coverage and citation; calculation-shaped work punishes any single wrong number or column.**
-
-That asymmetry is the most useful thing we learned, and it is actionable: a harness should spend its
-verification budget where a single error is fatal, and its coverage budget where the judge rewards
-completeness.
+## 4. Efficiency & Scaling (20 pts)
 
 ![Score vs cost](fig2-score-vs-cost.png)
 
-## 6. Cross-model behaviour
+*Figure 3 — score against compute per task. Point area is task count; the dashed line is the mean.*
 
-We ran the same harness against four models. Probes measure five skills that map to dev-set failure
-modes: schema adherence, unit arithmetic (`0.6 кПа · 6 м · 60 м = 216 кН`), extraction from prose,
-strict output format, and refusing to invent a code clause.
+Mean compute is **0.97 M tokens per task** (~$0.17 at DeepSeek list price, **$5.00** for the dev set),
+median runtime ~6 minutes — far inside the 6-hour cap.
 
-| Model | Probes | Synthetic task | tokens in/out | Notes |
-|---|---:|---:|---|---|
-| DeepSeek V3.2 Flash | **5/5** | 1.000 | 2 965 / 4 303 | cheapest, most careful |
-| DeepSeek V4 Pro | 4/5 | 1.000 | 1 569 / 7 577 | needs `reasoning_effort=low`, else empty `content` |
-| YandexGPT | 4/5 | 1.000 | 1 874 / 583 | **fails unit arithmetic**: 21.6 instead of 216 |
-| Gemma 4 26B (via Gemini free tier) | — | 1.000 | 1 378 / 918 | smallest run, same loop |
+**Where it plateaus.** Score is flat at ~0.014 from 0.55 M to 1.5 M tokens (ρ = −0.14); the costliest
+tasks are not the ones that scored, and the ceiling at any budget is 0.131. Spending more per task buys
+nothing because the failure is structural (schema), not analytical.
 
-Flattening evidence, the schema skeleton and the draft gate transferred to every model; the
-reasoning-effort setting did not. One model failed a probe that no prompt fixed: YandexGPT is
-consistently off by a factor of ten on a unit conversion — the most expensive error class here.
+**Where headroom actually is.** Two levers, both cheap: generating deliverables *from* the declared
+schema instead of describing it in prose, and a per-task verification pass that re-reads the produced
+file and re-derives its numbers. We estimate the 0.05–0.10 band is reachable with those, on the same
+model and the same token budget.
 
-## 7. Efficiency
+**Time management.** The 6-hour limit never bound a run; the longest task took 16 minutes. That budget
+is available but unspent — a fact we would exploit in a second iteration by adding verification passes
+rather than longer single passes.
 
-Mean compute is **0.97 M tokens per task**, about **$0.17 per task** at DeepSeek list price, or
-**$5.00 for the dev set**. Score does not scale with spend (ρ = −0.14): the costliest tasks are not
-the ones that scored, and the ceiling at any budget is 0.131 — a **plateau at ~0.01 mean**, with
-headroom that is purchasable in specification handling, not tokens. Reaching the 0.05–0.10 band needs
-schema-driven generation and per-task verification, not a bigger budget.
+## 5. Reproducibility (15 pts)
 
-![Failures](fig3-failures.png)
-
-## 8. Failure analysis across 29 tasks
-
-Twenty of 29 tasks scored exactly zero. The breakdown by discipline mirrors the paper's ordering but
-is far lower in absolute terms: electrical 0.025, structural 0.018, civil 0.009, mechanical 0.003.
-Mechanical work — MEP routing, mesh convergence, life-cycle cost — produced almost nothing, because
-those tasks need a correct geometric or numeric artefact, not a narrative.
-
-Three modes account for nearly all zeros: a deliverable written but missing the declared schema or
-columns; prose produced where a machine-readable file was required; and runs that ended with no file.
-**No zero came from a timeout** — the 6-hour budget was never binding. It was always the artefact.
-
-## 9. Ideas that did not work
-
-The rubric asks for failures, so: four things we tried that bought nothing.
-
-1. **Raising the step limit.** 120 → 150 steps changed nothing; runs hit the limit with the same
-   amount of work done, because the agent had no notion of its own budget. The status line did what
-   the extra steps did not.
-2. **A stronger model.** V4 Pro scored 0.000 on the task where Flash scored 0.011, at twice the
-   runtime and 8× the output tokens. On the full set, model choice was invisible under the noise.
-3. **Lazy MCP tool discovery.** The ~500 KB catalogue did cost 82 % of prompt tokens before indexing,
-   but removing it moved no score. It is a cost optimisation, not a quality one.
-4. **Higher reasoning effort.** `reasoning_effort=high` returned empty `content` on long prompts — the
-   model spent the whole budget thinking. `low` was cheaper and correct.
-
-## 10. What we would do next
-
-Ordered by value per hour: generate deliverables *from* the declared schema and verify column by
-column; then a per-task pass that re-reads the file and re-derives its numbers; then spend effort on
-mechanical and civil work, where the floor is lowest. The model is not the lever — three models,
-one 10× cheaper, scored within noise of each other on real tasks.
-
-## 11. Reproducibility
-
-Harness, `submission.yaml` and all 29 dev artefacts are in the linked repository (`artifacts/`,
-29/29 valid, verified with `kit artifacts`). The dev set ran on an 8 vCPU / 32 GB VM; the only local
-change to the kit was the build timeout described in §4.
-
-*Word count: ~1902.*
+- **`uv run python -m kit artifacts <entry>` — passes on this SHA.** All 29 dev tasks validate: 621
+  artifact files, 130 MB, no refusals, no missing tasks.
+- **`uv run python -m kit check <entry>` — partially verifiable here.** Build, listen and the smoke
+  task pass against a local-model variant of the same harness (bundle 110 MiB, built in 46 s, socket
+  accepted in 1 s, smoke solved in 3 model calls). The `model` stage for
+  `google-cloud/claude-opus-5-5` requires `MODEL_PROXY_URL`, which we do not have; it will be exercised
+  by the evaluation proxy in Stage 2.
+- **What a reviewer should look at:** `serve.py` and `ple/agent.py` (the loop), `ple/budget.py` (the
+  governor), `docs/WRITEUP.md` (this text), and `artifacts/` for the 29 runs.
+- **Known deviations, stated plainly:** (1) artifacts were produced with DeepSeek, not the declared
+  model (see the note at the top); (2) we raised the local image-build ceiling from 60 to 180 minutes
+  to build the heaviest world images — this changes no grading behaviour, only whether a task can run
+  at all.
