@@ -46,23 +46,38 @@ columns, sheets or keys did not match the declared structure (dominant in checks
 **(c) no file at all** (fixed by the draft gate). **No zero came from a timeout** — the 6-hour budget
 was never the binding constraint.
 
-### 1.2 Ablations
+### 1.2 Ablations: what we ran, and why the numbers do not separate
 
-Only the final configuration was measured on the full 29 tasks; earlier rows were measured on the
-controlled synthetic task, and we mark the missing cells rather than invent them.
+We ran three configurations on a fixed 12-task subset (three per discipline): the submitted harness
+(A), the same harness without the `task.md` preload (B), and without the draft gate (C). A third
+finding came out of running them, and it is more useful than the deltas.
 
-| Config | Dev (29) | Str (4) | Civ (9) | Elec (9) | Mech (7) | Controlled task |
-|:-|:-:|:-:|:-:|:-:|:-:|:-:|
-| Baseline: generic loop, no spec load, no draft gate | not run | — | — | — | — | 0.120 |
-| + evidence normalised (`key = value`, not nested JSON) | not run | — | — | — | — | 0.280 |
-| + answer skeleton + phase hints | not run | — | — | — | — | 0.840 |
-| + rollback when optimisation breaks a constraint | not run | — | — | — | — | 0.400 |
-| **Submitted** (all of the above + spec preload + draft gate) | **0.0136** | 0.018 | 0.009 | 0.025 | 0.003 | **1.000** |
+| Config | Tasks measured | Shared 8-task mean | Δ vs A |
+|:-|:-:|:-:|:-:|
+| **A — submitted** | 12 | **0.009** | — |
+| B — no spec preload | 8 | **0.023** | +0.014 |
+| C — no draft gate | not completed | — | — |
 
-**Two ideas that failed.** (1) *Raising the step limit* 120 → 150 changed nothing: runs hit the new
-limit with the same amount of work done. (2) *A stronger model* — V4 Pro scored 0.000 where Flash
-scored 0.011, at twice the runtime and 8× the output tokens. Also surprising: lazy MCP tool discovery
-saved 82 % of prompt tokens and moved no score — a cost optimisation, not a quality one.
+**The delta is smaller than the noise.** Across all our runs — same harness, same model, same task
+definitions — single tasks swing wildly:
+
+| Task | Score across separate runs | Range |
+|:-|:-|:-:|
+| `frame-extension-method` | 0.000, **0.184**, 0.000, 0.000, 0.000 | **0.184** |
+| `backfeed-energization-reply` | 0.000, **0.131** | 0.131 |
+| `seismic-diaphragm-shear` | **0.071**, 0.000, **0.059** | 0.071 |
+| `division-26-specifications` | 0.000, 0.000, 0.000, **0.067** | 0.067 |
+
+A 0.014 mean difference between configs cannot be resolved against a 0.184 single-task range. We
+stopped config C rather than report a number we could not defend. **The honest result is that a
+one-run-per-task protocol cannot attribute a score change to a harness change on this benchmark** —
+which is exactly why the competition averages three runs per task. Any writeup reporting a clean
+ablation table without stating its run count is reporting noise.
+
+Two further observations from the same runs: the rubric judge hung on one task after collection and
+never returned, so rubric tasks were the least reliable to measure; and the highest single score we
+ever saw (0.184) came from the config with a feature *removed*, which is a good illustration of why
+we report ranges rather than point estimates.
 
 ## 2. Architecture & Reasoning (25 pts)
 
