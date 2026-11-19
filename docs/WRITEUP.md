@@ -173,6 +173,9 @@ rather than longer single passes.
   variable left for the real proxy is which model sits behind the gateway — the protocol the harness
   speaks was verified end to end. Two engine warnings came from our throwaway copy, not the
   submission: the stand-in answered the MCP stage with the wrong path, and the copy had no `.git`.
+  One change landed after that run: the model client now also accepts `content` as a list of text
+  blocks, which some gateways return. It is covered by a local HTTP test across all three response
+  shapes rather than by another `kit check` run (the shared machine was saturated).
 - **What a reviewer should look at:** `serve.py` and `ple/agent.py` (the loop), `ple/budget.py` (the
   governor), `docs/WRITEUP.md` (this text), and `artifacts/` for the 29 runs.
 - **Known deviations, stated plainly:** (1) artifacts were produced with DeepSeek, not the declared
