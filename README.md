@@ -16,12 +16,11 @@ the engineering surface, not the prompt.
 
 ## 1. What the entry is
 
-The harness is a WebSocket server speaking the competition protocol. For each step the model returns
-exactly one JSON action — `exec`, `read_file`, `write_file`, `list_dir`, `mcp_list`, `mcp_call` or
-`finish` — and the harness executes it inside the sandboxed task container. Every result is truncated
-and fed back; history is compacted every 14 messages; a governor enforces the 6-hour clock and a hard
-token cap (`PLE_TOKEN_CAP`, 1.5 M) so a runaway task cannot spend without bound. The model never sees
-the grader and never has network access beyond its own endpoint.
+The harness is a WebSocket server speaking the competition protocol. Each step the model returns one
+JSON action — `exec`, `read_file`, `write_file`, `list_dir`, `mcp_list`, `mcp_call`, `finish` — and
+the harness executes it in the sandboxed task container. Results are truncated and fed back, history
+is compacted every 14 messages, and a governor enforces the 6-hour clock and a 1.5 M token cap. The
+model never sees the grader and has no network beyond its own endpoint.
 
 **Model and judge.** Dev artifacts were produced with **DeepSeek V3.2** (`openai-compatible`), which
 is legal for local development but is not a sponsored model; the submitted `submission.yaml` declares
@@ -32,8 +31,8 @@ comparable to a leaderboard score.
 
 ## 2. Insight #1 — the harness is not the bottleneck; the interface is
 
-We first validated the loop on a synthetic engineering task with a known answer, then changed one
-thing at a time. Same model, same architecture, five revisions:
+We validated the loop on a synthetic engineering task with a known answer, then changed one thing at
+a time. Same model, same architecture, five revisions:
 
 | Revision | Score | Change | What broke |
 |---|---:|---|---|
@@ -83,6 +82,12 @@ that reports 0 for an infrastructure failure is lying to its own writeup.
 
 ## 5. Engineering reasoning: two tasks, one engineer
 
+What the trajectories looked like explains both numbers. The first real run spent all 150 steps
+reading, wrote zero files, scored 0. After the draft gate it wrote 16 files in 355 s and still scored
+0, because the files did not match the schema. The run that scored 0.011 produced the required
+five-file package and failed only on column semantics: the agent moved from *cannot start* to *starts
+and misses* before any model upgrade helped.
+
 **`wind-diaphragm-shear` (structural, checks, 0.011).** A licensed engineer reads the criteria, takes
 the wind pressure, height and length, computes the diaphragm force, splits it between shear walls,
 checks each wall's capacity against the vendor table, then writes a calculation package. Our agent
@@ -118,19 +123,17 @@ strict output format, and refusing to invent a code clause.
 | YandexGPT | 4/5 | 1.000 | 1 874 / 583 | **fails unit arithmetic**: 21.6 instead of 216 |
 | Gemma 4 26B (via Gemini free tier) | — | 1.000 | 1 378 / 918 | smallest run, same loop |
 
-Three transfers held for every model: flattening evidence, the schema skeleton, and the draft gate.
-One did not: the reasoning-effort setting is DeepSeek-specific. And one model failed a probe in a way
-no prompt fixed — YandexGPT is consistently off by a factor of ten on a unit conversion, which is the
-single most expensive class of error in this benchmark.
+Flattening evidence, the schema skeleton and the draft gate transferred to every model; the
+reasoning-effort setting did not. One model failed a probe that no prompt fixed: YandexGPT is
+consistently off by a factor of ten on a unit conversion — the most expensive error class here.
 
 ## 7. Efficiency
 
-Mean compute is **0.97 M tokens per task** (input + output), about **$0.17 per task** at DeepSeek list
-price, or **$5.00 for the full dev set**. Score does not scale with spend (ρ = −0.14): the tasks that
-consumed the most tokens are not the ones that scored, and the ceiling at any budget is 0.131. We
-read this as a **plateau at ~0.01 mean for this agent**, with headroom that is not purchasable in
-tokens but in specification handling. Our estimate: raising mean score to the 0.05–0.10 band requires
-schema-driven generation and per-task verification, not a larger budget.
+Mean compute is **0.97 M tokens per task**, about **$0.17 per task** at DeepSeek list price, or
+**$5.00 for the dev set**. Score does not scale with spend (ρ = −0.14): the costliest tasks are not
+the ones that scored, and the ceiling at any budget is 0.131 — a **plateau at ~0.01 mean**, with
+headroom that is purchasable in specification handling, not tokens. Reaching the 0.05–0.10 band needs
+schema-driven generation and per-task verification, not a bigger budget.
 
 ![Failures](fig3-failures.png)
 
@@ -141,24 +144,35 @@ is far lower in absolute terms: electrical 0.025, structural 0.018, civil 0.009,
 Mechanical work — MEP routing, mesh convergence, life-cycle cost — produced almost nothing, because
 those tasks need a correct geometric or numeric artefact, not a narrative.
 
-Three failure modes account for nearly all zeros: (a) a deliverable was written but did not match the
-declared schema or column set; (b) the agent produced prose where a machine-readable file was
-required; (c) the run ended with no file at all. Notably, **none** of our zeros came from timeouts —
-the 6-hour budget was never the binding constraint. It was always the artefact.
+Three modes account for nearly all zeros: a deliverable written but missing the declared schema or
+columns; prose produced where a machine-readable file was required; and runs that ended with no file.
+**No zero came from a timeout** — the 6-hour budget was never binding. It was always the artefact.
 
-## 9. What we would do next
+## 9. Ideas that did not work
 
-Ordered by expected value per hour: (1) generate deliverables *from* the declared schema rather than
-describing it in prose, then verify column-by-column; (2) run a per-task verification pass that
-re-reads the produced file and re-derives the numbers; (3) spend the remaining budget on the
-mechanical and civil families, where the current floor is lowest. The model is not the lever: three
-models, including one that is 10× cheaper, all scored within noise of each other on the real tasks.
+The rubric asks for failures, so: four things we tried that bought nothing.
 
-## 10. Reproducibility
+1. **Raising the step limit.** 120 → 150 steps changed nothing; runs hit the limit with the same
+   amount of work done, because the agent had no notion of its own budget. The status line did what
+   the extra steps did not.
+2. **A stronger model.** V4 Pro scored 0.000 on the task where Flash scored 0.011, at twice the
+   runtime and 8× the output tokens. On the full set, model choice was invisible under the noise.
+3. **Lazy MCP tool discovery.** The ~500 KB catalogue did cost 82 % of prompt tokens before indexing,
+   but removing it moved no score. It is a cost optimisation, not a quality one.
+4. **Higher reasoning effort.** `reasoning_effort=high` returned empty `content` on long prompts — the
+   model spent the whole budget thinking. `low` was cheaper and correct.
 
-Harness commit, `submission.yaml` and all 29 dev-run artefacts are in the linked repository
-(`artifacts/`, 29/29 valid, verified with `kit artifacts`). The dev set was run on an 8 vCPU / 32 GB
-VM; the only local modifications to the kit were the build-timeout ceiling described in §4. Everything
-above can be re-run from the instructions in `demo/README.md`.
+## 10. What we would do next
 
-*Word count: ~1,760.*
+Ordered by value per hour: generate deliverables *from* the declared schema and verify column by
+column; then a per-task pass that re-reads the file and re-derives its numbers; then spend effort on
+mechanical and civil work, where the floor is lowest. The model is not the lever — three models,
+one 10× cheaper, scored within noise of each other on real tasks.
+
+## 11. Reproducibility
+
+Harness, `submission.yaml` and all 29 dev artefacts are in the linked repository (`artifacts/`,
+29/29 valid, verified with `kit artifacts`). The dev set ran on an 8 vCPU / 32 GB VM; the only local
+change to the kit was the build timeout described in §4.
+
+*Word count: ~1902.*
