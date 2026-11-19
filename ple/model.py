@@ -28,6 +28,29 @@ class ModelError(Exception):
     pass
 
 
+def _content_text(data: dict) -> str:
+    """Достаёт текст ответа из любого из двух форматов.
+
+    Шлюз на Stage 2 — LiteLLM перед спонсируемой моделью. Для текстовых ответов он
+    отдаёт строку, но у части конфигураций (и у нативного Anthropic-формата) `content`
+    приходит списком блоков `[{"type": "text", "text": "..."}]`. Строка-предположение
+    ломала разбор действия и превращала рабочий ответ в `invalid`.
+    """
+    choices = data.get("choices") or []
+    if not choices:
+        raise KeyError("choices")
+    content = (choices[0].get("message") or {}).get("content")
+    if isinstance(content, list):
+        parts = []
+        for block in content:
+            if isinstance(block, dict):
+                parts.append(str(block.get("text") or block.get("content") or ""))
+            elif block is not None:
+                parts.append(str(block))
+        return "".join(parts)
+    return content or ""
+
+
 class OpenAIModel:
     """POST /chat/completions c ретраями. Ключ и URL приходят из окружения."""
 
@@ -66,7 +89,7 @@ class OpenAIModel:
         for attempt in range(3):
             try:
                 data = await asyncio.to_thread(self._post, payload)
-                text = data["choices"][0]["message"]["content"] or ""
+                text = _content_text(data)
                 usage = data.get("usage") or {}
                 prompt_tok = usage.get("prompt_tokens") or _tokens(str(messages))
                 comp_tok = usage.get("completion_tokens") or 0
@@ -77,7 +100,7 @@ class OpenAIModel:
                 return text, {
                     "input_tokens": prompt_tok,
                     "output_tokens": comp_tok or _tokens(text),
-                    "cache_read_tokens": usage.get("prompt_tokens_details", {})
+                    "cache_read_tokens": (usage.get("prompt_tokens_details") or {})
                                              .get("cached_tokens", 0),
                 }
             except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, KeyError) as e:
