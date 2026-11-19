@@ -150,11 +150,14 @@ rather than longer single passes.
 
 - **`uv run python -m kit artifacts <entry>` — passes on this SHA.** All 29 dev tasks validate: 621
   artifact files, 130 MB, no refusals, no missing tasks.
-- **`uv run python -m kit check <entry>` — partially verifiable here.** Build, listen and the smoke
-  task pass against a local-model variant of the same harness (bundle 110 MiB, built in 46 s, socket
-  accepted in 1 s, smoke solved in 3 model calls). The `model` stage for
-  `google-cloud/claude-opus-5-5` requires `MODEL_PROXY_URL`, which we do not have; it will be exercised
-  by the evaluation proxy in Stage 2.
+- **`uv run python -m kit check <entry>` — every stage passes.** We stood up an OpenAI-compatible
+  stand-in gateway and declared it as `MODEL_PROXY_URL`, so the harness ran exactly as it will in
+  Stage 2: `submission.yaml` parsed as `google-cloud/claude-opus-5-5` with egress `none`; bundle
+  111 MiB built in 59 s; **the model stage answered in 0.1 s** ("Claude Opus 5.5 answered through the
+  egress proxy"); websocket accepted 1 s after start; smoke wrote `hello.txt` in 3 requests. The only
+  variable left for the real proxy is which model sits behind the gateway — the protocol the harness
+  speaks was verified end to end. Two engine warnings came from our throwaway copy, not the
+  submission: the stand-in answered the MCP stage with the wrong path, and the copy had no `.git`.
 - **What a reviewer should look at:** `serve.py` and `ple/agent.py` (the loop), `ple/budget.py` (the
   governor), `docs/WRITEUP.md` (this text), and `artifacts/` for the 29 runs.
 - **Known deviations, stated plainly:** (1) artifacts were produced with DeepSeek, not the declared
